@@ -2,7 +2,7 @@
 Simple Calculator,
 Created by Anton Ivanenko,June 2017
 I wrote this to train using Windows Forms .NET
-Calculation algorithm, witch uses stack to save operand and operations
+Calculation algorithm, which uses stack to save operand and operations
 *******************************************************************************/
 #include "expression.h"
 #include <vector>
@@ -141,18 +141,18 @@ std::string Calculate(const char *string) {
 					}
 					else {
 						Operation *op = new Operation(buffer, ReturnPriority(buffer, isUnarOperation));
-						if (*op > Oper->GetTopData()) { //âûñøûé ïðèîðèòåò
+						if (*op > Oper->GetTopData()) { //Ã¢Ã»Ã±Ã¸Ã»Ã© Ã¯Ã°Ã¨Ã®Ã°Ã¨Ã²Ã¥Ã²
 							Oper->push_front(*(new Operation(buffer, ReturnPriority(buffer, isUnarOperation))));
 							isNumber = true;
 							isOper = false;
 						}
 						else {
-							if (buffer == ")") { // åñëè âñòðåòèëè çàêðûâàþùóþ ñêîáêó
+							if (buffer == ")") { // Ã¥Ã±Ã«Ã¨ Ã¢Ã±Ã²Ã°Ã¥Ã²Ã¨Ã«Ã¨ Ã§Ã ÃªÃ°Ã»Ã¢Ã Ã¾Ã¹Ã³Ã¾ Ã±ÃªÃ®Ã¡ÃªÃ³
 								Operation operation = Oper->pop_front();
 								std::string oper = operation.oper;
 								int prior = operation.priority;
 								while (oper != "(") {
-									if (prior == 5) { //åñëè óíàðíàÿ îïåðàöèÿ
+									if (prior == 5) { //Ã¥Ã±Ã«Ã¨ Ã³Ã­Ã Ã°Ã­Ã Ã¿ Ã®Ã¯Ã¥Ã°Ã Ã¶Ã¨Ã¿
 										op2 = 0;
 										if (!Num->isEmpty()) op2 = Num->pop_front();
 										Sum = Calc(op2, oper);
@@ -170,7 +170,7 @@ std::string Calculate(const char *string) {
 									isOper = true;
 								}
 							}
-							else { //åñëè îïåðàöèÿ èìååò ìåíüøèé èëè òàêîé æå ïðèîðèòåò
+							else { //Ã¥Ã±Ã«Ã¨ Ã®Ã¯Ã¥Ã°Ã Ã¶Ã¨Ã¿ Ã¨Ã¬Ã¥Ã¥Ã² Ã¬Ã¥Ã­Ã¼Ã¸Ã¨Ã© Ã¨Ã«Ã¨ Ã²Ã ÃªÃ®Ã© Ã¦Ã¥ Ã¯Ã°Ã¨Ã®Ã°Ã¨Ã²Ã¥Ã²
 								Operation operation = Oper->pop_front();
 								std::string oper = operation.oper;
 								int prior = operation.priority;
@@ -204,7 +204,7 @@ std::string Calculate(const char *string) {
 			}
 		}
 	}
-	while (!Num->isEmpty() && !Oper->isEmpty()) {//âû÷èñëåíèå îñòàâøèõñÿ îïåðàöèé â ïðèìåðå
+	while (!Num->isEmpty() && !Oper->isEmpty()) {//Ã¢Ã»Ã·Ã¨Ã±Ã«Ã¥Ã­Ã¨Ã¥ Ã®Ã±Ã²Ã Ã¢Ã¸Ã¨ÃµÃ±Ã¿ Ã®Ã¯Ã¥Ã°Ã Ã¶Ã¨Ã© Ã¢ Ã¯Ã°Ã¨Ã¬Ã¥Ã°Ã¥
 		Operation operation;
 		std::string oper;
 		int prior;

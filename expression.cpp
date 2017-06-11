@@ -177,7 +177,7 @@ std::string Calculate(const char *string) {
 								if (prior == 5) {
 									op2 = 0;
 									if (!Num->isEmpty()) op2 = Num->pop_front();
-									Sum = -op2;
+									Sum = Calc(op2, oper);
 								}
 								else {
 									op1 = 0; op2 = 0;
